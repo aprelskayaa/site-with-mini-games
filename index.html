@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Игры</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/accounts.css">
+</head>
+<body>
+    <video autoplay muted loop id="bgVideo" class="video-background">
+        <source src="textures/fon.mp4" type="video/mp4">
+    </video>
+
+    <header class="header">
+        <nav class="nav-menu">
+            <div class="nav-center">
+                <a href="#" class="nav-link" id="homeBtn">Главная</a>
+                <a href="#" class="nav-link" id="gameBtn">Игры</a>
+            
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-link2" id="regBtn">Регистрация</a>
+                <div class="neon-line"></div>
+                <a href="#" class="nav-link2" id="vhodBtn">Вход</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="game-title">Коллекция Flash Игр</h1>
+            <p class="game-description">Окунитесь в мир классических flash игр, которые принесут вам незабываемые впечатления!</p>
+        </div>
+    </section>
+
+    <button class="scroll-to-top" id="scrollToTopBtn">&#8679;</button>
+
+    <section id="games-section" class="games-grid">
+ 
+        </article>
+        </article>
+        </article>
+        <article class="game-card" onclick="window.location.href='games/Thepathtoadiploma.html'">
+            <div class="game-thumbnail" style="background-image: url('textures/dip.png');"></div>
+            <div class="game-info">
+                <h2 class="game-title-card">The path to a diploma</h2>
+                <span class="game-category">Аркада</span>
+            </div>
+        </article>
+        <article class="game-card" onclick="window.location.href='games/Попробуй_сдать).html'">
+            <div class="game-thumbnail" style="background-image: url('textures/dip.png');"></div>
+            <div class="game-info">
+                <h2 class="game-title-card">Попробуй сдать</h2>
+                <span class="game-category">Аркада</span>
+            </div>
+        </article>
+    </section>
+
+    <div id="modalOverlay" class="modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <div id="loginModal" class="reg-container">
+                <div class="container">
+                    <input class="reg" type="text" id="name" placeholder="Имя">
+                    <input class="reg" type="text" id="login" placeholder="Логин">
+                    <input class="reg" type="password" id="password" placeholder="Пароль">
+                    <button type="submit" id="submit">Зарегистрироваться</button>
+                    <h1 style="color: white;">Уже регестрировались?</h1>  
+                    <button class="pig">Войти</button>
+                    <div class="qr-container">
+                        <button class="qr-button" type="button" id="qrButton">
+                            <img src="textures/qr-code.png" alt="QR Code">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalOverlay2" class="modal2">
+        <span class="close-modal2">&times;</span>
+        <div class="modal-content2">
+            <div id="loginModal" class="reg-container">
+                <div class="container">
+                    <input class="reg" type="text" id="login" placeholder="Логин">
+                    <input class="reg" type="password" id="password" placeholder="Пароль">
+                    <button type="submit2" onclick="document.location='file:index.html'" id="submit2">Войти</button>
+                    <h1 style="color: white;">Ещё не регестрировались?</h1>  
+                    <button class="pig_reg">Зарегистрироваться</button>
+                    <div class="qr-container">
+                        <button class="qr-button" type="button" id="qrButton">
+                            <img src="textures/qr-code.png" alt="QR Code">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<button class="demo-button" id="demoGamesBtn">Демо игр</button>--> <!--УБРАНА КНОПКА-->
+
+    <div class="divider"></div>
+
+    <footer class="footer">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Условия использования</a>
+        <a href="#">О нас</a>
+    </footer>
+
+    <script>
+        const homeButton = document.getElementById('homeBtn');
+        const gameButton = document.getElementById('gameBtn');
+        /*const gameSection = document.getElementById('games-section');*/
+
+        homeButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        gameButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (gameSection) {
+                const yOffset = -120;
+                const y = gameSection.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        });
+    </script>
+
+    <script src="path/to/your/script.js"></script>
+
+    <div class="rotate-message">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M16.5 12c0-1.11-.45-2.11-1.17-2.83l-1.41 1.41c.38.38.58.89.58 1.42s-.2 1.04-.58 1.41l1.41 1.41c.72-.72 1.17-1.72 1.17-2.82zM2 5h4v2H4v12h2v2H2V5zm18 0h-4v2h2v12h-2v2h4V5zm-8 8c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1zm-5 0c0-1.11.45-2.11 1.17-2.83l1.41 1.41c-.38.38-.58.89-.58 1.42s.2 1.04.58 1.41l-1.41 1.41C7.45 14.11 7 13.11 7 12z"/>
+        </svg>
+        <h2>Поверните устройство</h2>
+        <p>Для лучшего отображения содержимого, пожалуйста, переверните ваше устройство в горизонтальное положение</p>
+    </div>
+</body>
+</html>

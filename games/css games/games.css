@@ -1,0 +1,338 @@
+:root {
+    --primary-color: #ff3366;
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --accent-color: #ff9a8b;
+    --table-bg-color: #1a1a1a;
+    --table-border-color: #444444;
+    --divider-color: #444444;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    filter: blur(30px);
+    transform: scale(1.05);
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(Black, rgba(0, 0, 0, 0.3));
+    padding: 20px 0;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.nav-right {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.nav-link, .nav-link2 {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+    background: rgba(255, 51, 102, 0.1);
+    transform: scale(1.1);
+}
+
+.nav-link2:hover {
+    color: var(--primary-color);
+    background: rgba(255, 51, 102, 0.1);
+}
+
+.nav-link:active {
+    transform: translateY(1px);
+}
+
+.neon-line {
+    width: 2px;
+    height: 20px;
+    background-color: var(--primary-color);
+    margin: 0 10px;
+    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+}
+
+.hero-section {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    text-align: center;
+}
+
+.game-title {
+    font-size: 56px;
+    font-weight: bold;
+    margin-bottom: 0;
+    animation: fadeInDown 1s ease-out;
+}
+
+.game-title2 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.game-description {
+    font-size: 20px;
+    max-width: 650px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.start-game {
+    margin-top: 0;
+    padding: 18px 40px;
+    background-color: rgba(255, 51, 102, 0.51);
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out 0.7s forwards;
+}
+
+.start-game:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.start-game:active {
+    transform: translateY(1px);
+}
+
+.black-square-container {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+    padding: 0 50px;
+}
+
+.black-square,
+.black-square2,
+.black-square3 {
+    position: relative;
+    background-color: black;
+    margin: 150px auto;
+    overflow: hidden;
+}
+
+.black-square {
+    width: 400px;
+    height: 500px;
+}
+
+.black-square2 {
+    width: 900px;
+    height: 570px;
+}
+
+.black-square3 {
+    width: 800px;
+    height: 480px;
+}
+.divider {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background-color: #ff336670;
+    margin: 60px 0;
+
+}
+
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.725), transparent);
+    z-index: -1;
+}
+
+.footer {
+    text-align: center;
+    color: var(--text-color);
+    padding: 20px;
+    font-size: 14px;
+}
+
+.footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.rotate-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.rotate-message svg {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    fill: var(--primary-color);
+}
+
+.rotate-message h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.rotate-message p {
+    font-size: 18px;
+    max-width: 80%;
+    line-height: 1.5;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 0.5; transform: scale(1.1); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 800px) {
+    .header {
+        height: 20px;
+    }
+    .nav-link, .nav-link2 {
+        font-size: 13px;
+        padding: 0 5px;
+    }
+}
+
+@media (max-width: 560px) {
+    .rotate-message {
+        display: flex;
+    }
+    .game-title {
+        font-size: 36px;
+    }
+    .game-description {
+        font-size: 16px;
+        max-width: 90%;
+    }
+    .black-square-container {
+        padding: 0 20px;
+    }
+    .black-square,
+    .black-square2,
+    .black-square3 {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1/1;
+        margin: 50px auto;
+    }
+}

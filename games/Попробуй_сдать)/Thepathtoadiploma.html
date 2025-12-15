@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<head>
+    <title>Diplom</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css games/games.css" >
+    <link rel="stylesheet" href="../css/accounts.css" >
+</head>
+<body>
+    <video autoplay muted loop id="bgVideo" class="video-background">
+        <source src="../textures/fon.mp4" type="video/mp4">
+    </video>
+    <header class="header">
+        <nav class="nav-menu">
+            <div class="nav-center">
+                <a href="../index.html" class="nav-link" id="homeBtn">Главная</a>
+                <a href="../index.html#games-section" class="nav-link" id="gameBtn">Игры</a>
+                <!--<a href="#" class="nav-link" onclick="window.location.href='../leaderboard.html'" id="reid">Рейтинг</a>-->
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-link2" id="regBtn">Регистрация</a>
+                <div class="neon-line"></div>
+                <a href="#" class="nav-link2" id="vhodBtn">Вход</a>
+            </div>
+        </nav>
+    </header>
+<style>
+        .blur-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(5px);
+            background-color: rgba(255, 255, 255, 0.5);
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background-color: #8f7a66;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .play-button::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-left: 30px solid white;
+            border-bottom: 20px solid transparent;
+            margin-left: 5px;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .black-square2 {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="game-title">The path to a Diploma</h1>
+            <div class="game-title2" style="color:#ff3366">Аркада</div>
+            <p class="game-description">The path to a Diploma — Получи диплом и сумей не вылететь из училища!</p>
+        </div>
+        <button class="start-game" id="start-game2">Начать игру!</button>
+    </section>
+
+
+    <section id="game">
+    <div class="black-square-container">
+    <div class="black-square3">
+        <div class="diagonal-line"></div>
+        <iframe id="gameFrame" src="ThepathtoadiplomaWEB/index.html" 
+                style="width: 100%; height: 100%; border: none; filter: blur(5px);"></iframe>
+        <div id="blurOverlay" class="blur-overlay">
+            <div class="play-button" id="playButton"></div>
+        </div>
+        <button id="fullscreenBtn" style="
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #8f7a66;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1001;
+    transition: all 0.3s;
+    "
+    >Полный экран</button>
+    </div>
+</div>
+    <div class="divider"></div>
+    </section>
+    <footer class="footer">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Условия использования</a>
+        <a href="#">О нас</a>
+    </footer>
+    <button class="scroll-to-top" id="scrollToTopBtn">&#8679;</button>
+
+    <div class="rotate-message">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M16.5 12c0-1.11-.45-2.11-1.17-2.83l-1.41 1.41c.38.38.58.89.58 1.42s-.2 1.04-.58 1.41l1.41 1.41c.72-.72 1.17-1.72 1.17-2.82zM2 5h4v2H4v12h2v2H2V5zm18 0h-4v2h2v12h-2v2h4V5zm-8 8c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1zm-5 0c0-1.11.45-2.11 1.17-2.83l1.41 1.41c-.38.38-.58.89-.58 1.42s.2 1.04.58 1.41l-1.41 1.41C7.45 14.11 7 13.11 7 12z"/>
+        </svg>
+        <h2>Поверните устройство</h2>
+        <p>Для лучшего отображения содержимого, пожалуйста, переверните ваше устройство в горизонтальное положение</p>
+    </div>
+
+    <div id="modalOverlay" class="modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <div id="loginModal" class="reg-container">
+                <div class="container">
+                    <input class="reg" type="text" id="name" placeholder="Имя">
+                    <input class="reg" type="text" id="login" placeholder="Логин">
+                    <input class="reg" type="password" id="password" placeholder="Пароль">
+                    <button type="submit" id="submit">Зарегистрироваться</button>
+                    <h1 style="color: white;">Уже регестрировались?</h1>  
+                    <button class="pig">Войти</button>
+                    <div class="qr-container">
+                        <button class="qr-button" type="button" id="qrButton">
+                            <img src="../textures/qr-code.png" alt="QR Code">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalOverlay2" class="modal2">
+        <span class="close-modal2">&times;</span>
+        <div class="modal-content2">
+            <div id="loginModal" class="reg-container">
+                <div class="container">
+                    <input class="reg" type="text" id="login" placeholder="Логин">
+                    <input class="reg" type="password" id="password" placeholder="Пароль">
+                    <button type="submit2" onclick="document.location='file:index.html'" id="submit2">Войти</button>
+                    <h1 style="color: white;">Ещё не регестрировались?</h1>  
+                    <button class="pig_reg">Зарегистрироваться</button>
+                    <div class="qr-container">
+                        <button class="qr-button" type="button" id="qrButton">
+                            <img src="../textures/qr-code.png" alt="QR Code">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="../path/to/your/script.js"></script>
+
+    <script>
+        const gameS = document.getElementById('game');
+        const gameB = document.getElementById('start-game2');
+        
+        gameB.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (gameS) {
+                const yOffset = 30;
+                const y = gameS.getBoundingClientRect().top + window.scrollY + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        });
+
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const gameFrame = document.getElementById('gameFrame');
+        const blackSquare = document.querySelector('.black-square3');
+        const playButton = document.getElementById('playButton');
+        const blurOverlay = document.getElementById('blurOverlay');
+
+        playButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (gameS) {
+                const yOffset = 30;
+                const y = gameS.getBoundingClientRect().top + window.scrollY + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        });
+
+        // Обработчик кнопки Play
+        playButton.addEventListener('click', function() {
+            gameFrame.style.filter = 'none';
+            blurOverlay.classList.add('hidden');
+            fullscreenBtn.style.zIndex = '1000';
+        });
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                if (blackSquare.requestFullscreen) {
+                    blackSquare.requestFullscreen();
+                } else if (blackSquare.webkitRequestFullscreen) {
+                    blackSquare.webkitRequestFullscreen();
+                } else if (blackSquare.msRequestFullscreen) { 
+                    blackSquare.msRequestFullscreen();
+                }
+                fullscreenBtn.textContent = 'Выйти (Esc)';
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                fullscreenBtn.textContent = 'Полный экран';
+            }
+        }
+
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.fullscreenElement) {
+                toggleFullscreen();
+            }
+        });
+
+        document.addEventListener('fullscreenchange', updateButtonText);
+        document.addEventListener('webkitfullscreenchange', updateButtonText);
+        document.addEventListener('msfullscreenchange', updateButtonText);
+
+        function updateButtonText() {
+            if (!document.fullscreenElement) {
+                fullscreenBtn.textContent = 'Полный экран';
+            }
+        }
+    </script>
+</body>
+</html>
