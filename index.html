@@ -47,7 +47,7 @@
          tabindex="0"
          aria-label="Перейти к игре The path to a diploma">
     <div class="game-thumbnail" 
-         style="background-image: url('textures/dip.png');"
+         style="background-image: url('textures/dip.WebP');"
          aria-hidden="true">
     </div>
     <div class="game-info">
@@ -58,7 +58,7 @@
             </div>
         </article>
         <article class="game-card" onclick="window.location.href='games/Попробуй_сдать).html'">
-            <div class="game-thumbnail" style="background-image: url('textures/dip.png');"></div>
+            <div class="game-thumbnail" style="background-image: url('textures/dip.WebP');"></div>
             <div class="game-info">
                 <h2 class="game-title-card">Попробуй сдать</h2>
                 <span class="game-category">Аркада</span>
@@ -149,5 +149,8 @@
         <h2>Поверните устройство</h2>
         <p>Для лучшего отображения содержимого, пожалуйста, переверните ваше устройство в горизонтальное положение</p>
     </div>
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|ico)$">
+    Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
 </body>
 </html>
