@@ -122,13 +122,13 @@ body{
 }
 
 :root {
-    --primary-color: #ff3366;
+    --primary-color: #FF0000;
     --secondary-color: #4ecdc4;
     --bg-color: #121212;
     --text-color: #ffffff;
     --card-bg-color: #1a1a1a;
     --card-hover-bg-color: #2c2c2c;
-    --accent-color: #ff9a8b;
+    --accent-color: #FF0000;
     --divider-color: #444444;
 }
 
