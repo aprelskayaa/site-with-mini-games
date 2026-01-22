@@ -7,14 +7,20 @@
 </head>
 <body>
     <video autoplay muted loop id="bgVideo" class="video-background">
-        <source src="../textures/fon.mp4" type="video/mp4">
+        <style>
+            body {
+                background-image: url("https://i.pinimg.com/originals/c5/2b/2a/c52b2acc0c9cdc78593e9926a73a901b.gif");
+                background-size: 100%; /* Чтобы GIF растянулся на весь фон */
+                background-repeat: repeat;
+                background-position: center; /* Центрирование GIF */
+            }
+        </style>
     </video>
     <header class="header">
         <nav class="nav-menu">
             <div class="nav-center">
                 <a href="../index.html" class="nav-link" id="homeBtn">Главная</a>
                 <a href="../index.html#games-section" class="nav-link" id="gameBtn">Игры</a>
-                <!--<a href="#" class="nav-link" onclick="window.location.href='../leaderboard.html'" id="reid">Рейтинг</a>-->
             </div>
             <div class="nav-right">
                 <a href="#" class="nav-link2" id="regBtn">Регистрация</a>
@@ -78,7 +84,7 @@
     <section class="hero-section">
         <div class="hero-content">
             <h1 class="game-title">Попробуй сдать</h1>
-            <div class="game-title2" style="color:#ff3366">Аркада</div>
+            <div class="game-title2" style="color: #FF0000">Аркада</div>
             <p class="game-description">Попробуй сдать — Напиши сессию или вылетишь!</p>
         </div>
         <button class="start-game" id="start-game2">Начать игру!</button>
