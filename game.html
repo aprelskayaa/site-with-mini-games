@@ -5,65 +5,161 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flash Игры</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Убираем лишние отступы */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-image: url("https://i.pinimg.com/originals/c5/2b/2a/c52b2acc0c9cdc78593e9926a73a901b.gif");
+            background-size: 100%;
+            background-repeat: repeat;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .games-grid {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+
+        .game-card {
+            background: var(--card-bg-color);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            height: 320px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+            .game-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+        /* Основной контент - растягивается и центрирует игры */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Вертикальное центрирование */
+            align-items: center; /* Горизонтальное центрирование */
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+
+
+
+
+        /* Сообщение о повороте */
+        .rotate-message {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            text-align: center;
+            padding: 20px;
+        }
+
+            .rotate-message svg {
+                width: 80px;
+                height: 80px;
+                fill: white;
+                margin-bottom: 20px;
+            }
+
+        /* Адаптивность */
+        @media (max-width: 768px) and (orientation: portrait) {
+            .rotate-message {
+                display: flex;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+        }
+
+        /* Для планшетов */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Для узких экранов */
+        @media (max-width: 480px) {
+            .nav-link {
+                font-size: 1.2rem;
+                padding: 5px 10px;
+            }
+
+            .games-grid {
+                gap: 15px;
+            }
+
+            .game-thumbnail {
+                height: 120px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <video autoplay muted loop id="bgVideo" class="video-background">
-        <style>
-            body {
-                background-image: url("https://i.pinimg.com/originals/c5/2b/2a/c52b2acc0c9cdc78593e9926a73a901b.gif");
-                background-size: 100%; /* Чтобы GIF растянулся на весь фон */
-                background-repeat: repeat;
-                background-position: center; /* Центрирование GIF */
-            }
-        </style>
-
-    </video>
-
     <header class="header">
         <nav class="nav-menu">
             <div class="nav-center">
                 <a href="index.html" class="nav-link" id="homeBtn">Главная</a>
             </div>
-
         </nav>
     </header>
 
-
-
-
-
-
-    <!--<div class="divider"></div>
-
-    <footer class="footer">
-        <a href="#">Политика конфиденциальности</a>
-
-    </footer>
-
-    <script>
-        const homeButton = document.getElementById('homeBtn');
-
-
-        homeButton.addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        gameButton.addEventListener('click', function (e) {
-            e.preventDefault();
-            if (gameSection) {
-                const yOffset = -120;
-                const y = gameSection.getBoundingClientRect().top + window.scrollY + yOffset;
-                window.scrollTo({ top: y, behavior: 'smooth' });
-            }
-        });
-
-    </script>-->
-
-    <script src="path/to/your/script.js"></script>
+    <main class="content-wrapper">
+        <section id="games-section" class="games-grid">
+            <article class="game-card" onclick="window.location.href='games/IUBIPuzzle.html'">
+                <div class="game-thumbnail" style="background-image: url('textures/puzzle.jpg');"></div>
+                <div class="game-info">
+                    <h2 class="game-title-card">Пазл</h2>
+                    <span class="game-category">Головоломки</span>
+                </div>
+            </article>
+            <article class="game-card" onclick="window.location.href='games/Thepathtoadiploma.html'">
+                <div class="game-thumbnail" style="background-image: url('textures/dip.png');"></div>
+                <div class="game-info">
+                    <h2 class="game-title-card">Ступени к диплому</h2>
+                    <span class="game-category">Аркада</span>
+                </div>
+            </article>
+            <article class="game-card" onclick="window.location.href='games/Попробуй_сдать).html'">
+                <div class="game-thumbnail" style="background-image: url('textures/path.jpg');"></div>
+                <div class="game-info">
+                    <h2 class="game-title-card">Путь к успеху: пересдача</h2>
+                    <span class="game-category">Аркада</span>
+                </div>
+            </article>
+        </section>
+    </main>
 
     <div class="rotate-message">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -72,7 +168,30 @@
         <h2>Поверните устройство</h2>
         <p>Для лучшего отображения содержимого, пожалуйста, переверните ваше устройство в горизонтальное положение</p>
     </div>
-    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|ico)$">
-    </FilesMatch>
+
+    <script>
+        // Плавная прокрутка к началу при клике на "Главная"
+        document.getElementById('homeBtn').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Показываем сообщение о повороте только на мобильных в портретной ориентации
+        function checkOrientation() {
+            const rotateMessage = document.querySelector('.rotate-message');
+            if (window.innerWidth <= 768 && window.matchMedia("(orientation: portrait)").matches) {
+                rotateMessage.style.display = 'flex';
+            } else {
+                rotateMessage.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('orientationchange', checkOrientation);
+        checkOrientation(); // Проверяем при загрузке
+    </script>
 </body>
 </html>
