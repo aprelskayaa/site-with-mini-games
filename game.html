@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Игры</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <video autoplay muted loop id="bgVideo" class="video-background">
+        <style>
+            body {
+                background-image: url("https://i.pinimg.com/originals/c5/2b/2a/c52b2acc0c9cdc78593e9926a73a901b.gif");
+                background-size: 100%; /* Чтобы GIF растянулся на весь фон */
+                background-repeat: repeat;
+                background-position: center; /* Центрирование GIF */
+            }
+        </style>
+
+    </video>
+
+    <header class="header">
+        <nav class="nav-menu">
+            <div class="nav-center">
+                <a href="index.html" class="nav-link" id="homeBtn">Главная</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+
+
+
+
+    <!--<div class="divider"></div>
+
+    <footer class="footer">
+        <a href="#">Политика конфиденциальности</a>
+
+    </footer>
+
+    <script>
+        const homeButton = document.getElementById('homeBtn');
+
+
+        homeButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        gameButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (gameSection) {
+                const yOffset = -120;
+                const y = gameSection.getBoundingClientRect().top + window.scrollY + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        });
+
+    </script>-->
+
+    <script src="path/to/your/script.js"></script>
+
+    <div class="rotate-message">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M16.5 12c0-1.11-.45-2.11-1.17-2.83l-1.41 1.41c.38.38.58.89.58 1.42s-.2 1.04-.58 1.41l1.41 1.41c.72-.72 1.17-1.72 1.17-2.82zM2 5h4v2H4v12h2v2H2V5zm18 0h-4v2h2v12h-2v2h4V5zm-8 8c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1zm-5 0c0-1.11.45-2.11 1.17-2.83l1.41 1.41c-.38.38-.58.89-.58 1.42s.2 1.04.58 1.41l-1.41 1.41C7.45 14.11 7 13.11 7 12z" />
+        </svg>
+        <h2>Поверните устройство</h2>
+        <p>Для лучшего отображения содержимого, пожалуйста, переверните ваше устройство в горизонтальное положение</p>
+    </div>
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|ico)$">
+    </FilesMatch>
+</body>
+</html>
