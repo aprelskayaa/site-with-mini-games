@@ -3,6 +3,10 @@
     --bg-color: #121212;
     --text-color: #ffffff;
     --accent-color: #FF0000;
+    --primary-color: #ff3366;
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --accent-color: #ff9a8b;
     --table-bg-color: #1a1a1a;
     --table-border-color: #444444;
     --divider-color: #444444;
@@ -134,11 +138,9 @@ body {
 .start-game {
     margin-top: 0;
     padding: 18px 40px;
-<<<<<<< HEAD
     background-color: rgba(139, 0, 0/ 51%);
-=======
     background-color: rgba(139, 0, 0, 0.51);
->>>>>>> 82e4550213ebec3621311e634b83e53ed1970031
+    background-color: rgba(139, 0, 0, 0.51);
     color: white;
     font-size: 18px;
     border: none;

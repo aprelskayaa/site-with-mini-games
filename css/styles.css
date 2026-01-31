@@ -354,6 +354,11 @@ body {
 }
 
 @media (max-width: 620px) {
+}
+
+@media (max-width: 620px){ 
+
+
     .games-grid {
         grid-template-columns: 1fr;
         padding: 15px;
