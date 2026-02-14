@@ -1,9 +1,9 @@
 // Основной объект приложения для избежания глобальных переменных
-<<<<<<< HEAD
+
 const App = (function () {
-=======
+
 const App = (function() {
->>>>>>> 6e7c43d1a4de60d2607037ce104e0ba8eee64cc2
+
     // Конфигурация
     const CONFIG = {
         SCROLL_THRESHOLD: 200,
@@ -42,7 +42,7 @@ const App = (function() {
     // Валидация
     const Validator = {
         isPasswordValid(password) {
-<<<<<<< HEAD
+
             return password.length >= CONFIG.PASSWORD_MIN &&
                 password.length <= CONFIG.PASSWORD_MAX &&
                 /^[A-Za-z]+$/.test(password);
@@ -51,7 +51,7 @@ const App = (function() {
         isNameAndLoginValid(name, login) {
             return name.length <= CONFIG.NAME_MAX &&
                 login.length <= CONFIG.NAME_MAX;
-=======
+
             return password.length >= CONFIG.PASSWORD_MIN && 
                    password.length <= CONFIG.PASSWORD_MAX && 
                    /^[A-Za-z]+$/.test(password);
@@ -60,18 +60,14 @@ const App = (function() {
         isNameAndLoginValid(name, login) {
             return name.length <= CONFIG.NAME_MAX && 
                    login.length <= CONFIG.NAME_MAX;
->>>>>>> 6e7c43d1a4de60d2607037ce104e0ba8eee64cc2
+
         }
     };
 
     // Видео
     function initVideo() {
         if (!dom.bgVideo) return;
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 6e7c43d1a4de60d2607037ce104e0ba8eee64cc2
+   
         dom.bgVideo.playbackRate = 0.6;
         dom.bgVideo.addEventListener('loadedmetadata', () => {
             dom.bgVideo.playbackRate = 0.5;
@@ -91,7 +87,6 @@ const App = (function() {
 
         modals.forEach(({ btn, modal, from, to }) => {
             if (!btn) return;
-<<<<<<< HEAD
 
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -99,7 +94,7 @@ const App = (function() {
                 if (state.isModalTransitioning) return;
                 state.isModalTransitioning = true;
 
-=======
+
             
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -107,7 +102,6 @@ const App = (function() {
                 if (state.isModalTransitioning) return;
                 state.isModalTransitioning = true;
                 
->>>>>>> 6e7c43d1a4de60d2607037ce104e0ba8eee64cc2
                 if (from && to) {
                     // Переключение между модалками
                     toggleModal(from, false);
@@ -138,7 +132,6 @@ const App = (function() {
         dom.modalOverlay2?.addEventListener('click', (e) => {
             if (e.target === dom.modalOverlay2) toggleModal(dom.modalOverlay2, false);
         });
-<<<<<<< HEAD
     }
 
     function toggleModal(modal, show) {
@@ -163,7 +156,6 @@ const App = (function() {
 
         let scrollTimeout;
 
-=======
     }
 
     function toggleModal(modal, show) {
@@ -187,17 +179,12 @@ const App = (function() {
         if (!dom.scrollToTopButton) return;
 
         let scrollTimeout;
-        
->>>>>>> 6e7c43d1a4de60d2607037ce104e0ba8eee64cc2
+
         const handleScroll = () => {
             if (scrollTimeout) {
                 cancelAnimationFrame(scrollTimeout);
             }
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> 6e7c43d1a4de60d2607037ce104e0ba8eee64cc2
             scrollTimeout = requestAnimationFrame(() => {
                 const shouldShow = window.scrollY > CONFIG.SCROLL_THRESHOLD;
                 dom.scrollToTopButton.classList.toggle('show', shouldShow);
@@ -206,11 +193,8 @@ const App = (function() {
 
         // Дебаунс скролла для производительности
         window.addEventListener('scroll', handleScroll, { passive: true });
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 6e7c43d1a4de60d2607037ce104e0ba8eee64cc2
+
         dom.scrollToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
@@ -234,11 +218,7 @@ const App = (function() {
 
         dom.submitBtn.addEventListener('click', (e) => {
             e.preventDefault();
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> 6e7c43d1a4de60d2607037ce104e0ba8eee64cc2
             const nameUser = dom.nameInput?.value?.trim() || '';
             const loginUser = dom.loginInput?.value?.trim() || '';
             const passwordUser = dom.passwordInput?.value?.trim() || '';
@@ -304,8 +284,7 @@ const App = (function() {
 })();
 
 // Запуск приложения
-<<<<<<< HEAD
 App.init();
-=======
+
 App.init();
->>>>>>> 6e7c43d1a4de60d2607037ce104e0ba8eee64cc2
+
