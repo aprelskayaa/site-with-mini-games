@@ -200,62 +200,6 @@ const App = (function() {
         });
     }
 
-    // Регистрация
-    function initRegistration() {
-        if (!dom.submitBtn) return;
-
-        class User {
-            constructor(name, login, password) {
-                this.name = name;
-                this.login = login;
-                this.password = password;
-            }
-        }
-
-        function createId() {
-            return Object.keys(state.users).length;
-        }
-
-        dom.submitBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            const nameUser = dom.nameInput?.value?.trim() || '';
-            const loginUser = dom.loginInput?.value?.trim() || '';
-            const passwordUser = dom.passwordInput?.value?.trim() || '';
-
-            if (!Validator.isNameAndLoginValid(nameUser, loginUser)) {
-                alert(`Имя и логин должны содержать не более ${CONFIG.NAME_MAX} символов.`);
-                return;
-            }
-
-            if (!Validator.isPasswordValid(passwordUser)) {
-                alert(`Пароль должен содержать от ${CONFIG.PASSWORD_MIN} до ${CONFIG.PASSWORD_MAX} символов и состоять только из латинских букв.`);
-                return;
-            }
-
-            // Создание пользователя
-            const user = new User(nameUser, loginUser, passwordUser);
-            const userId = 'User' + createId();
-            state.users[userId] = user;
-
-            // Очистка полей
-            if (dom.nameInput) dom.nameInput.value = '';
-            if (dom.loginInput) dom.loginInput.value = '';
-            if (dom.passwordInput) dom.passwordInput.value = '';
-
-            // Редирект
-            window.location.href = 'index.html';
-        });
-    }
-
-    // QR кнопка
-    function initQrButton() {
-        dom.qrButton?.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.open('https://t.me/iubip91', '_blank');
-        });
-    }
-
     // Инициализация всех модулей
     function init() {
         if (document.readyState === 'loading') {
