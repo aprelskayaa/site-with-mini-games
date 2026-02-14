@@ -131,6 +131,7 @@
         <nav class="nav-menu">
             <div class="nav-center">
                 <a href="../index.html" class="nav-link" id="homeBtn">Главная</a>
+                 <a href="../index.html" class="nav-link" id="homeBtn">Главная</a>
             </div>
         </nav>
     </header>
@@ -178,6 +179,8 @@
                 behavior: 'smooth'
             });
         });
+const homeButton = document.getElementById('homeBtn');
+const heroSection = document.querySelector('.hero-section'); // или другой элемент
 
         const homeButton = document.getElementById('homeBtn');
         const heroSection = document.querySelector('.hero-section'); // или другой элемент
@@ -206,6 +209,33 @@
                 window.location.href = this.href;
             }
         });
+
+homeButton.addEventListener('click', function (e) {
+    e.preventDefault();  // Блокируем мгновенный переход
+    
+    const homeSection = document.querySelector('.hero-section'); // секция для скролла
+    
+    if (homeSection) {
+        // Плавный скролл к hero-section
+        const yOffset = -120; // такой же отступ как у gameBtn
+        const y = homeSection.getBoundingClientRect().top + window.scrollY + yOffset;
+        
+        window.scrollTo({ 
+            top: y, 
+            behavior: 'smooth' 
+        });
+        
+        // Переход на index.html после скролла
+        setTimeout(() => {
+            window.location.href = this.href; // ../index.html
+        }, 500);
+    } else {
+        // Если секции нет - сразу переходим
+        window.location.href = this.href;
+    }
+});
+
+
 
         // Показываем сообщение о повороте только на мобильных в портретной ориентации
         function checkOrientation() {
