@@ -144,7 +144,22 @@
                 window.scrollTo({ top: y, behavior: 'smooth' });
             }
         });
+        gameButton.addEventListener('click', function (e) {
+            // Ничего не делаем - просто переходим по ссылке
+            // Браузер сам откроет game.html
+        });
 
+        // На странице ИГР (game.html):
+        document.addEventListener('DOMContentLoaded', function () {
+            const gameSection = document.getElementById('games-section');
+            if (gameSection) {
+                const yOffset = -120;
+                window.scrollTo({
+                    top: gameSection.offsetTop + yOffset,
+                    behavior: 'smooth'
+                });
+            }
+        });
         const fullscreenBtn = document.getElementById('fullscreenBtn');
         const gameFrame = document.getElementById('gameFrame');
         const blackSquare = document.querySelector('.black-square3');
