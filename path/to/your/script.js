@@ -1,9 +1,5 @@
 // Основной объект приложения для избежания глобальных переменных
-
-const App = (function () {
-
 const App = (function() {
-
     // Конфигурация
     const CONFIG = {
         SCROLL_THRESHOLD: 200,
@@ -42,16 +38,6 @@ const App = (function() {
     // Валидация
     const Validator = {
         isPasswordValid(password) {
-
-            return password.length >= CONFIG.PASSWORD_MIN &&
-                password.length <= CONFIG.PASSWORD_MAX &&
-                /^[A-Za-z]+$/.test(password);
-        },
-
-        isNameAndLoginValid(name, login) {
-            return name.length <= CONFIG.NAME_MAX &&
-                login.length <= CONFIG.NAME_MAX;
-
             return password.length >= CONFIG.PASSWORD_MIN && 
                    password.length <= CONFIG.PASSWORD_MAX && 
                    /^[A-Za-z]+$/.test(password);
@@ -60,14 +46,12 @@ const App = (function() {
         isNameAndLoginValid(name, login) {
             return name.length <= CONFIG.NAME_MAX && 
                    login.length <= CONFIG.NAME_MAX;
-
         }
     };
 
     // Видео
     function initVideo() {
         if (!dom.bgVideo) return;
-   
         dom.bgVideo.playbackRate = 0.6;
         dom.bgVideo.addEventListener('loadedmetadata', () => {
             dom.bgVideo.playbackRate = 0.5;
@@ -90,27 +74,16 @@ const App = (function() {
 
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-
                 if (state.isModalTransitioning) return;
                 state.isModalTransitioning = true;
 
-
-            
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                if (state.isModalTransitioning) return;
-                state.isModalTransitioning = true;
-                
                 if (from && to) {
-                    // Переключение между модалками
                     toggleModal(from, false);
                     setTimeout(() => {
                         toggleModal(to, true);
                         state.isModalTransitioning = false;
                     }, CONFIG.MODAL_TRANSITION_DELAY);
                 } else {
-                    // Открытие одной модалки
                     toggleModal(modal, true);
                     state.isModalTransitioning = false;
                 }
@@ -136,7 +109,6 @@ const App = (function() {
 
     function toggleModal(modal, show) {
         if (!modal) return;
-
         if (show) {
             modal.style.display = 'flex';
             requestAnimationFrame(() => {
@@ -155,62 +127,32 @@ const App = (function() {
         if (!dom.scrollToTopButton) return;
 
         let scrollTimeout;
-
-    }
-
-    function toggleModal(modal, show) {
-        if (!modal) return;
-        
-        if (show) {
-            modal.style.display = 'flex';
-            requestAnimationFrame(() => {
-                modal.classList.add('active');
-            });
-        } else {
-            modal.classList.remove('active');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, CONFIG.MODAL_TRANSITION_DELAY);
-        }
-    }
-
-    // Скролл вверх
-    function initScrollToTop() {
-        if (!dom.scrollToTopButton) return;
-
-        let scrollTimeout;
-
         const handleScroll = () => {
             if (scrollTimeout) {
                 cancelAnimationFrame(scrollTimeout);
             }
-
             scrollTimeout = requestAnimationFrame(() => {
                 const shouldShow = window.scrollY > CONFIG.SCROLL_THRESHOLD;
                 dom.scrollToTopButton.classList.toggle('show', shouldShow);
             });
         };
 
-        // Дебаунс скролла для производительности
         window.addEventListener('scroll', handleScroll, { passive: true });
-
-
         dom.scrollToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
-    // Инициализация всех модулей
-    function init() {
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                initModules();
-            });
-        } else {
-            initModules();
-        }
+    // Заглушки для неопределенных функций
+    function initRegistration() {
+        // TODO: Реализовать регистрацию
     }
 
+    function initQrButton() {
+        // TODO: Реализовать QR кнопку
+    }
+
+    // Инициализация всех модулей
     function initModules() {
         initVideo();
         initModals();
@@ -219,16 +161,21 @@ const App = (function() {
         initQrButton();
     }
 
+    function init() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initModules);
+        } else {
+            initModules();
+        }
+    }
+
     // Публичные методы
     return {
         init,
-        getUsers: () => ({ ...state.users }), // Возвращаем копию
+        getUsers: () => ({ ...state.users }),
         toggleModal
     };
 })();
 
 // Запуск приложения
 App.init();
-
-App.init();
-

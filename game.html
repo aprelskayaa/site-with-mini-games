@@ -170,71 +170,19 @@
     </div>
 
     <script>
-        // Плавная прокрутка к началу при клике на "Главная"
-        document.getElementById('homeBtn').addEventListener('click', function (e) {
+        // Обработчик для кнопки "Главная"
+        const homeButton = document.getElementById('homeBtn');
+
+        homeButton.addEventListener('click', function (e) {
             e.preventDefault();
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-        });
-const homeButton = document.getElementById('homeBtn');
-const heroSection = document.querySelector('.hero-section'); // или другой элемент
-
-        const homeButton = document.getElementById('homeBtn');
-        const heroSection = document.querySelector('.hero-section'); // или другой элемент
-
-        homeButton.addEventListener('click', function (e) {
-            e.preventDefault();  // Блокируем мгновенный переход
-
-            const homeSection = document.querySelector('.hero-section'); // секция для скролла
-
-            if (homeSection) {
-                // Плавный скролл к hero-section
-                const yOffset = -120; // такой же отступ как у gameBtn
-                const y = homeSection.getBoundingClientRect().top + window.scrollY + yOffset;
-
-                window.scrollTo({
-                    top: y,
-                    behavior: 'smooth'
-                });
-
-                // Переход на index.html после скролла
-                setTimeout(() => {
-                    window.location.href = this.href; // ../index.html
-                }, 500);
-            } else {
-                // Если секции нет - сразу переходим
+            setTimeout(() => {
                 window.location.href = this.href;
-            }
+            }, 300);
         });
-
-homeButton.addEventListener('click', function (e) {
-    e.preventDefault();  // Блокируем мгновенный переход
-    
-    const homeSection = document.querySelector('.hero-section'); // секция для скролла
-    
-    if (homeSection) {
-        // Плавный скролл к hero-section
-        const yOffset = -120; // такой же отступ как у gameBtn
-        const y = homeSection.getBoundingClientRect().top + window.scrollY + yOffset;
-        
-        window.scrollTo({ 
-            top: y, 
-            behavior: 'smooth' 
-        });
-        
-        // Переход на index.html после скролла
-        setTimeout(() => {
-            window.location.href = this.href; // ../index.html
-        }, 500);
-    } else {
-        // Если секции нет - сразу переходим
-        window.location.href = this.href;
-    }
-});
-
-
 
         // Показываем сообщение о повороте только на мобильных в портретной ориентации
         function checkOrientation() {
