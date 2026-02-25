@@ -19,8 +19,8 @@
     <header class="header">
         <nav class="nav-menu">
             <div class="nav-center">
-                <a href="../index.html" class="nav-link" id="homeBtn">Главная</a>
-                <a href="game.html" class="nav-link" id="gameBtn">Игры</a>
+                <a href="index.html" class="nav-link" id="homeBtn">Главная</a>
+                <a href="../game.html" class="nav-link" id="gameBtn">Игры</a>
             </div>
             
         </nav>
@@ -130,7 +130,7 @@
 
 
     
-    <script src="../path/to/your/script.js"></script>
+
 
     <script>
         const gameS = document.getElementById('game');
@@ -142,22 +142,6 @@
                 const yOffset = 30;
                 const y = gameS.getBoundingClientRect().top + window.scrollY + yOffset;
                 window.scrollTo({ top: y, behavior: 'smooth' });
-            }
-        });
-        gameButton.addEventListener('click', function (e) {
-            // Ничего не делаем - просто переходим по ссылке
-            // Браузер сам откроет game.html
-        });
-
-        // На странице ИГР (game.html):
-        document.addEventListener('DOMContentLoaded', function () {
-            const gameSection = document.getElementById('games-section');
-            if (gameSection) {
-                const yOffset = -120;
-                window.scrollTo({
-                    top: gameSection.offsetTop + yOffset,
-                    behavior: 'smooth'
-                });
             }
         });
         const fullscreenBtn = document.getElementById('fullscreenBtn');
