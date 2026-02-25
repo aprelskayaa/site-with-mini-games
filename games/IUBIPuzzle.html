@@ -144,11 +144,6 @@
                 window.scrollTo({ top: y, behavior: 'smooth' });
             }
         });
-        gameButton.addEventListener('click', function (e) {
-            // Ничего не делаем - просто переходим по ссылке
-            // Браузер сам откроет game.html
-        });
-
         // На странице ИГР (game.html):
         document.addEventListener('DOMContentLoaded', function () {
             const gameSection = document.getElementById('games-section');

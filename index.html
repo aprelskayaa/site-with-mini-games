@@ -101,7 +101,6 @@
 
     <script>
         const homeButton = document.getElementById('homeBtn');
-        const gameButton = document.getElementById('gameBtn');
 
         homeButton.addEventListener('click', function (e) {
             e.preventDefault();
@@ -110,50 +109,6 @@
                 behavior: 'smooth'
             });
         });
-   
-        //gameButton.addEventListener('click', function (e) {
-        //    e.preventDefault();
-        //    if (gameSection) {
-        //        const yOffset = -120;
-        //        const y = gameSection.getBoundingClientRect().top + window.scrollY + yOffset;
-        //        window.scrollTo({ top: y, behavior: 'smooth' });
-        //    }
-        //});
-        // На ГЛАВНОЙ странице (index.html):
-        gameButton.addEventListener('click', function (e) {
-            // Ничего не делаем - просто переходим по ссылке
-            // Браузер сам откроет game.html
-        });
-
-        // На странице ИГР (game.html):
-        document.addEventListener('DOMContentLoaded', function () {
-            const gameSection = document.getElementById('games-section');
-            if (gameSection) {
-                const yOffset = -120;
-                window.scrollTo({
-                    top: gameSection.offsetTop + yOffset,
-                    behavior: 'smooth'
-                });
-            }
-
-        // На ГЛАВНОЙ странице (index.html):
-gameButton.addEventListener('click', function (e) {
-    // Ничего не делаем - просто переходим по ссылке
-    // Браузер сам откроет game.html
-});
-
-// На странице ИГР (game.html):
-document.addEventListener('DOMContentLoaded', function() {
-    const gameSection = document.getElementById('games-section');
-    if (gameSection) {
-        const yOffset = -120;
-        window.scrollTo({
-            top: gameSection.offsetTop + yOffset,
-            behavior: 'smooth'
-        });
-    }
-});
-
     </script>
 
     <script src="path/to/your/script.js"></script>
@@ -165,7 +120,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <h2>Поверните устройство</h2>
         <p>Для лучшего отображения содержимого, пожалуйста, переверните ваше устройство в горизонтальное положение</p>
     </div>
-    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|ico)$">
-    </FilesMatch>
+
 </body>
 </html>
