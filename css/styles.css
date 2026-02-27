@@ -368,5 +368,52 @@ body {
     .rotate-message {
         display: flex;
     }
+
+.text1 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 44%;
+    padding-left: 0;
+    display: flex;
+    position: static;
+    bottom: 150px;
+    padding: 5rem;
+    padding-left: 10rem;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+}
+.text2 {
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 44%;
+    padding-left: 0;
+    display: flex;
+    bottom: 150px;
+    padding: 5rem;
+    padding-left: 50rem;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+}
+.text3 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 44%;
+    padding-left: 0;
+    display: flex;
+    position: static;
+    bottom: 150px;
+    padding: 5rem;
+    padding-left: 10rem;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+}
 }
 
