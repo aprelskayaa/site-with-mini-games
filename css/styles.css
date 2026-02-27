@@ -368,6 +368,7 @@ body {
     .rotate-message {
         display: flex;
     }
+}
 
 .text1 {
     flex-direction: column;
@@ -415,5 +416,5 @@ body {
     margin-bottom: 20px;
     animation: fadeInDown 1s ease-out;
 }
-}
+
 
